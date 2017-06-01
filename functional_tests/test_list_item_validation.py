@@ -9,7 +9,7 @@ class ItemValidationTest(FunctionalTest):
         self.browser.find_element_by_id('id_new_item').send_keys(Keys.ENTER)
 
         self.wait_for(lambda: self.assertEqual(
-            self.browser.find_element_by_css_selector('.has_error').text,
+            self.browser.find_element_by_css_selector('.has-error').text,
             "You cant have an empty list item"
         ))
 
@@ -20,7 +20,7 @@ class ItemValidationTest(FunctionalTest):
         self.browser.find_element_by_id('id_new_item').send_keys(Keys.ENTER)
 
         self.wait_for(lambda: self.assertEqual(
-            self.browser.find_element_by_css_selector('.has_error').text,
+            self.browser.find_element_by_css_selector('.has-error').text,
             "You cant have an empty list item"
         ))
 
