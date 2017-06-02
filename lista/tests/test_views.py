@@ -2,6 +2,7 @@ from django.test import TestCase
 
 from lista.models import Item, List
 from lista.views import home_page
+from lista.forms import ItemForm
 
 class NewListTest(TestCase):
 
@@ -87,6 +88,6 @@ class HomePageTest(TestCase):
         response = self.client.get('/')
         self.assertTemplateUsed(response, 'home.html')
 
-    def test_only_saves_items_when_necessary(self):
-        self.client.get('/')
-        self.assertEqual(Item.objects.count(), 0)
+    def test_home_page_uses_item_form(self):
+        response = self.client.get('/')
+        self.assertIsInstance(response.context['form'], ItemForm)
