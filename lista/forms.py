@@ -5,6 +5,10 @@ EMPTY_ITEM_ERROR = 'You cant have an empty list item'
 
 class ItemForm(forms.models.ModelForm):
 
+    def save(self, for_list):
+        self.instance.list = for_list
+        return super().save()
+
     class Meta:
         model = Item
         fields = ('text',)
