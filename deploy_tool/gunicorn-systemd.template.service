@@ -1,0 +1,8 @@
+[Unit]
+Description=Gunicorn server
+
+[Service]
+Restart=on-failure
+User=lucho
+WorkingDirectory=/home/lucho/sites/SITENAME/source \
+    simple.wsgi:application
